@@ -175,6 +175,10 @@ namespace Calculator
                         userInput.Text = "-" + userInput.Text;
                     }
                 }
+                else if(userInput.Text=="")
+                {
+                    userInput.Text = "-";
+                }
                 else
                 {
                     result *= -1;
@@ -211,6 +215,7 @@ namespace Calculator
             userInput.Text = "";
             Function = '0';
             isLocked = false;
+            resultOnScreen = false;
         }
 
         private void funcMultiply_Click(object sender, EventArgs e)
@@ -222,6 +227,7 @@ namespace Calculator
                     first = double.Parse(userInput.Text);
                     userInput.Text = "";
                     Function = '*';
+                    resultOnScreen = false;
                 }
                 else
                 {
@@ -239,6 +245,7 @@ namespace Calculator
                     first = double.Parse(userInput.Text);
                     userInput.Text = "";
                     Function = '/';
+                    resultOnScreen = false;
                 }
                 else
                 {
@@ -256,6 +263,7 @@ namespace Calculator
                     first = double.Parse(userInput.Text);
                     userInput.Text = "";
                     Function = '+';
+                    resultOnScreen = false;
                 }
                 else
                 {
@@ -273,6 +281,7 @@ namespace Calculator
                     first = double.Parse(userInput.Text);
                     userInput.Text = "";
                     Function = '-';
+                    resultOnScreen = false;
                 }
                 else
                 {
@@ -326,9 +335,16 @@ namespace Calculator
                             result = first - second;
                             break;
                         case '0':
+                            result = second;
                             break;
                     }
                     first = result;
+                    resultOnScreen = true;
+                    userInput.Text = Convert.ToString(result);
+                }
+                else
+                {
+                    result = first;
                     resultOnScreen = true;
                     userInput.Text = Convert.ToString(result);
                 }
