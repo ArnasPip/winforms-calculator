@@ -18,195 +18,156 @@ namespace Calculator
         public bool isLocked = false;
         private void numZero_Click(object sender, EventArgs e)
         {
-            if (isLocked == false)
+            if (isLocked) return;
+            if (resultOnScreen)
             {
-                if (resultOnScreen)
-                {
-                    userInput.Text = "0";
-                    resultOnScreen = false;
-                }
-                else if (userInput.Text == "0")
-                {
-                    userInput.Text = "0";
-                }
-                else
-                    userInput.Text += "0";
+                userInput.Text = "0";
+                resultOnScreen = false;
             }
+            else if (userInput.Text == "0")
+            {
+                userInput.Text = "0";
+            }
+            else
+                userInput.Text += "0";
         }
-
         private void numOne_Click(object sender, EventArgs e)
         {
-            if (isLocked == false)
+            if (isLocked) return;
+            if (resultOnScreen)
             {
-                if (resultOnScreen)
-                {
-                    userInput.Text = "1";
-                    resultOnScreen = false;
-                }
-                else
-                    userInput.Text += "1";
+                userInput.Text = "1";
+                resultOnScreen = false;
             }
+            else
+                userInput.Text += "1";
         }
-
         private void numTwo_Click(object sender, EventArgs e)
         {
-            if (isLocked == false)
+            if (isLocked) return;
+            if (resultOnScreen)
             {
-                if (resultOnScreen)
-                {
-                    userInput.Text = "2";
-                    resultOnScreen = false;
-                }
-                else
-                    userInput.Text += "2";
+                userInput.Text = "2";
+                resultOnScreen = false;
             }
+            else
+                userInput.Text += "2";
         }
-
         private void numThree_Click(object sender, EventArgs e)
         {
-            if (isLocked == false)
+            if (isLocked) return;
+            if (resultOnScreen)
             {
-                if (resultOnScreen)
-                {
-                    userInput.Text = "3";
-                    resultOnScreen = false;
-                }
-                else
-                    userInput.Text += "3";
+                userInput.Text = "3";
+                resultOnScreen = false;
             }
+            else
+                userInput.Text += "3";
         }
-
         private void numFour_Click(object sender, EventArgs e)
         {
-            if (isLocked == false)
+            if (isLocked) return;
+            if (resultOnScreen)
             {
-                if (resultOnScreen)
-                {
-                    userInput.Text = "4";
-                    resultOnScreen = false;
-                }
-                else
-                    userInput.Text += "4";
+                userInput.Text = "4";
+                resultOnScreen = false;
             }
+            else
+                userInput.Text += "4";
         }
-
         private void numFive_Click(object sender, EventArgs e)
         {
-            if (isLocked == false)
+            if (isLocked) return;
+            if (resultOnScreen)
             {
-                if (resultOnScreen)
-                {
-                    userInput.Text = "5";
-                    resultOnScreen = false;
-                }
-                else
-                    userInput.Text += "5";
+                userInput.Text = "5";
+                resultOnScreen = false;
             }
+            else
+                userInput.Text += "5";
         }
-
         private void numSix_Click(object sender, EventArgs e)
         {
-            if (isLocked == false)
+            if (isLocked) return;
+            if (resultOnScreen)
             {
-                if (resultOnScreen)
-                {
-                    userInput.Text = "6";
-                    resultOnScreen = false;
-                }
-                else
-                    userInput.Text += "6";
+                userInput.Text = "6";
+                resultOnScreen = false;
             }
+            else
+                userInput.Text += "6";
         }
-
         private void numSeven_Click(object sender, EventArgs e)
         {
-            if (isLocked == false)
+            if (isLocked) return;
+            if (resultOnScreen)
             {
-                if (resultOnScreen)
-                {
-                    userInput.Text = "7";
-                    resultOnScreen = false;
-                }
-                else
-                    userInput.Text += "7";
+                userInput.Text = "7";
+                resultOnScreen = false;
             }
+            else
+                userInput.Text += "7";
         }
-
         private void numEight_Click(object sender, EventArgs e)
         {
-            if (isLocked == false)
+            if (isLocked) return;
+            if (resultOnScreen)
             {
-                if (resultOnScreen)
-                {
-                    userInput.Text = "8";
-                    resultOnScreen = false;
-                }
-                else
-                    userInput.Text += "8";
+                userInput.Text = "8";
+                resultOnScreen = false;
             }
+            else
+                userInput.Text += "8";
         }
-
         private void numNine_Click(object sender, EventArgs e)
         {
-            if (isLocked == false)
+            if (isLocked) return;
+            if (resultOnScreen)
             {
-                if (resultOnScreen)
-                {
-                    userInput.Text = "9";
-                    resultOnScreen = false;
-                }
-                else
-                    userInput.Text += "9";
+                userInput.Text = "9";
+                resultOnScreen = false;
             }
+            else
+                userInput.Text += "9";
         }
-
         private void funcNegate_Click(object sender, EventArgs e)
         {
-            if (isLocked == false)
+            if (isLocked) return;
+            if (!resultOnScreen && userInput.Text.StartsWith('-'))
             {
-                if (!resultOnScreen)
-                {
-                    if (userInput.Text.StartsWith('-'))
-                    {
-                        userInput.Text = userInput.Text.Substring(1);
-                    }
-                    else
-                    {
-                        userInput.Text = "-" + userInput.Text;
-                    }
-                }
-                else if(userInput.Text=="")
-                {
-                    userInput.Text = "-";
-                }
-                else
-                {
-                    result *= -1;
-                    userInput.Text = Convert.ToString(result);
-                }
+                userInput.Text = userInput.Text.Substring(1); 
+            }
+            else if (!resultOnScreen)
+            {
+                userInput.Text = "-" + userInput.Text;
+            }
+            else if (userInput.Text == "")
+            {
+                userInput.Text = "-";
+            }
+            else
+            {
+                result *= -1;
+                userInput.Text = Convert.ToString(result);
             }
         }
-
         private void numDot_Click(object sender, EventArgs e)
         {
-            if (isLocked == false)
+            if (isLocked) return;
+            if (userInput.Text == "")
             {
-                if (userInput.Text == "")
-                {
-                    userInput.Text = "0";
-                }
-                if (resultOnScreen)
-                {
-                    userInput.Text = "0,";
-                    resultOnScreen = false;
-                }
-                else if (!userInput.Text.EndsWith(',') && !userInput.Text.Contains(','))
-                {
-                    userInput.Text += ",";
-                }
+                userInput.Text = "0";
+            }
+            if (resultOnScreen)
+            {
+                userInput.Text = "0,";
+                resultOnScreen = false;
+            }
+            else if (!userInput.Text.EndsWith(',') && !userInput.Text.Contains(','))
+            {
+                userInput.Text += ",";
             }
         }
-
         private void funcClear_Click(object sender, EventArgs e)
         {
             first = 0.0;
@@ -217,141 +178,121 @@ namespace Calculator
             isLocked = false;
             resultOnScreen = false;
         }
-
         private void funcMultiply_Click(object sender, EventArgs e)
         {
-            if (isLocked == false)
+            if (isLocked) return;
+            if (userInput.Text != "")
             {
-                if (userInput.Text != "")
-                {
-                    first = double.Parse(userInput.Text);
-                    userInput.Text = "";
-                    Function = '*';
-                    resultOnScreen = false;
-                }
-                else
-                {
-                    Function = '*';
-                }
+                first = double.Parse(userInput.Text);
+                userInput.Text = "";
+                Function = '*';
+                resultOnScreen = false;
+            }
+            else
+            {
+                Function = '*';
             }
         }
-
         private void funcDivide_Click(object sender, EventArgs e)
         {
-            if (isLocked == false)
+            if (isLocked) return;
+            if (userInput.Text != "")
             {
-                if (userInput.Text != "")
-                {
-                    first = double.Parse(userInput.Text);
-                    userInput.Text = "";
-                    Function = '/';
-                    resultOnScreen = false;
-                }
-                else
-                {
-                    Function = '/';
-                }
+                first = double.Parse(userInput.Text);
+                userInput.Text = "";
+                Function = '/';
+                resultOnScreen = false;
+            }
+            else
+            {
+                Function = '/';
             }
         }
-
         private void funcPlus_Click(object sender, EventArgs e)
         {
-            if (isLocked == false)
+            if (isLocked) return;
+            if (userInput.Text != "")
             {
-                if (userInput.Text != "")
-                {
-                    first = double.Parse(userInput.Text);
-                    userInput.Text = "";
-                    Function = '+';
-                    resultOnScreen = false;
-                }
-                else
-                {
-                    Function = '+';
-                }
+                first = double.Parse(userInput.Text);
+                userInput.Text = "";
+                Function = '+';
+                resultOnScreen = false;
+            }
+            else
+            {
+                Function = '+';
             }
         }
-
         private void funcMinus_Click(object sender, EventArgs e)
         {
-            if (isLocked == false)
+            if (isLocked) return;
+            if (userInput.Text != "")
             {
-                if (userInput.Text != "")
-                {
-                    first = double.Parse(userInput.Text);
-                    userInput.Text = "";
-                    Function = '-';
-                    resultOnScreen = false;
-                }
-                else
-                {
-                    Function = '-';
-                }
+                first = double.Parse(userInput.Text);
+                userInput.Text = "";
+                Function = '-';
+                resultOnScreen = false;
+            }
+            else
+            {
+                Function = '-';
+
             }
         }
-
         private void funcEquals_Click(object sender, EventArgs e)
         {
-            if (isLocked == false)
+            if (isLocked == true) return;
+            else if (resultOnScreen)
             {
-                if (resultOnScreen)
+                switch (Function)
                 {
-                    switch (Function)
-                    {
-                        case '*':
-                            result = second * result;
-                            break;
-                        case '/':
-                            result = result / second;
-                            break;
-                        case '+':
-                            result = second + result;
-                            break;
-                        case '-':
-                            result = result - second;
-                            break;
-                        case '0':
-                            break;
-                    }
-                    first = result;
-                    resultOnScreen = true;
-                    userInput.Text = Convert.ToString(result);
+                    case '*':
+                        result = second * result;
+                        break;
+                    case '/':
+                        result = result / second;
+                        break;
+                    case '+':
+                        result = second + result;
+                        break;
+                    case '-':
+                        result = result - second;
+                        break;
+                    case '0':
+                        break;
                 }
-                else if (userInput.Text != "")
+                first = result;
+                resultOnScreen = true;
+                userInput.Text = Convert.ToString(result);
+            }
+            else if (userInput.Text != "")
+            {
+                second = double.Parse(userInput.Text);
+                switch (Function)
                 {
-                    second = double.Parse(userInput.Text);
-                    switch (Function)
-                    {
-                        case '*':
-                            result = first * second;
-                            break;
-                        case '/':
-                            result = first / second;
-                            break;
-                        case '+':
-                            result = first + second;
-                            break;
-                        case '-':
-                            result = first - second;
-                            break;
-                        case '0':
-                            result = second;
-                            break;
-                    }
-                    first = result;
-                    resultOnScreen = true;
-                    userInput.Text = Convert.ToString(result);
+                    case '*':
+                        result = first * second;
+                        break;
+                    case '/':
+                        result = first / second;
+                        break;
+                    case '+':
+                        result = first + second;
+                        break;
+                    case '-':
+                        result = first - second;
+                        break;
+                    case '0':
+                        result = second;
+                        break;
                 }
-                else
-                {
-                    result = first;
-                    resultOnScreen = true;
-                    userInput.Text = Convert.ToString(result);
-                }
-                if (double.IsInfinity(result))
-                {
-                    isLocked = true;
-                }
+                first = result;
+                resultOnScreen = true;
+                userInput.Text = Convert.ToString(result);
+            }
+            if (double.IsInfinity(result))
+            {
+                isLocked = true;
             }
         }
     }
