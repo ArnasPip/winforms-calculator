@@ -18,117 +18,43 @@ namespace Calculator
         public bool isLocked = false;
         private void numZero_Click(object sender, EventArgs e)
         {
-            if (isLocked) return;
-            if (resultOnScreen)
-            {
-                userInput.Text = "0";
-                resultOnScreen = false;
-            }
-            else if (userInput.Text == "0")
-            {
-                userInput.Text = "0";
-            }
-            else
-                userInput.Text += "0";
+            num_click("0");
         }
         private void numOne_Click(object sender, EventArgs e)
         {
-            if (isLocked) return;
-            if (resultOnScreen)
-            {
-                userInput.Text = "1";
-                resultOnScreen = false;
-            }
-            else
-                userInput.Text += "1";
+            num_click("1");
         }
         private void numTwo_Click(object sender, EventArgs e)
         {
-            if (isLocked) return;
-            if (resultOnScreen)
-            {
-                userInput.Text = "2";
-                resultOnScreen = false;
-            }
-            else
-                userInput.Text += "2";
+            num_click("2");
         }
         private void numThree_Click(object sender, EventArgs e)
         {
-            if (isLocked) return;
-            if (resultOnScreen)
-            {
-                userInput.Text = "3";
-                resultOnScreen = false;
-            }
-            else
-                userInput.Text += "3";
+            num_click("3");
         }
         private void numFour_Click(object sender, EventArgs e)
         {
-            if (isLocked) return;
-            if (resultOnScreen)
-            {
-                userInput.Text = "4";
-                resultOnScreen = false;
-            }
-            else
-                userInput.Text += "4";
+            num_click("4");
         }
         private void numFive_Click(object sender, EventArgs e)
         {
-            if (isLocked) return;
-            if (resultOnScreen)
-            {
-                userInput.Text = "5";
-                resultOnScreen = false;
-            }
-            else
-                userInput.Text += "5";
+            num_click("5");
         }
         private void numSix_Click(object sender, EventArgs e)
         {
-            if (isLocked) return;
-            if (resultOnScreen)
-            {
-                userInput.Text = "6";
-                resultOnScreen = false;
-            }
-            else
-                userInput.Text += "6";
+            num_click("6");
         }
         private void numSeven_Click(object sender, EventArgs e)
         {
-            if (isLocked) return;
-            if (resultOnScreen)
-            {
-                userInput.Text = "7";
-                resultOnScreen = false;
-            }
-            else
-                userInput.Text += "7";
+            num_click("7");
         }
         private void numEight_Click(object sender, EventArgs e)
         {
-            if (isLocked) return;
-            if (resultOnScreen)
-            {
-                userInput.Text = "8";
-                resultOnScreen = false;
-            }
-            else
-                userInput.Text += "8";
+            num_click("8");
         }
         private void numNine_Click(object sender, EventArgs e)
         {
-            if (isLocked) return;
-            if (resultOnScreen)
-            {
-                userInput.Text = "9";
-                resultOnScreen = false;
-            }
-            else
-                userInput.Text += "9";
+            num_click("9");
         }
         private void funcNegate_Click(object sender, EventArgs e)
         {
@@ -153,20 +79,7 @@ namespace Calculator
         }
         private void numDot_Click(object sender, EventArgs e)
         {
-            if (isLocked) return;
-            if (userInput.Text == "")
-            {
-                userInput.Text = "0";
-            }
-            if (resultOnScreen)
-            {
-                userInput.Text = "0,";
-                resultOnScreen = false;
-            }
-            else if (!userInput.Text.EndsWith(',') && !userInput.Text.Contains(','))
-            {
-                userInput.Text += ",";
-            }
+            num_click(",");
         }
         private void funcClear_Click(object sender, EventArgs e)
         {
@@ -180,64 +93,19 @@ namespace Calculator
         }
         private void funcMultiply_Click(object sender, EventArgs e)
         {
-            if (isLocked) return;
-            if (userInput.Text != "")
-            {
-                first = double.Parse(userInput.Text);
-                userInput.Text = "";
-                Function = '*';
-                resultOnScreen = false;
-            }
-            else
-            {
-                Function = '*';
-            }
+            operation_click('*');
         }
         private void funcDivide_Click(object sender, EventArgs e)
         {
-            if (isLocked) return;
-            if (userInput.Text != "")
-            {
-                first = double.Parse(userInput.Text);
-                userInput.Text = "";
-                Function = '/';
-                resultOnScreen = false;
-            }
-            else
-            {
-                Function = '/';
-            }
+            operation_click('/');
         }
         private void funcPlus_Click(object sender, EventArgs e)
         {
-            if (isLocked) return;
-            if (userInput.Text != "")
-            {
-                first = double.Parse(userInput.Text);
-                userInput.Text = "";
-                Function = '+';
-                resultOnScreen = false;
-            }
-            else
-            {
-                Function = '+';
-            }
+            operation_click('+');
         }
         private void funcMinus_Click(object sender, EventArgs e)
         {
-            if (isLocked) return;
-            if (userInput.Text != "")
-            {
-                first = double.Parse(userInput.Text);
-                userInput.Text = "";
-                Function = '-';
-                resultOnScreen = false;
-            }
-            else
-            {
-                Function = '-';
-
-            }
+            operation_click('-');
         }
         private void funcEquals_Click(object sender, EventArgs e)
         {
@@ -293,6 +161,67 @@ namespace Calculator
             if (double.IsInfinity(result))
             {
                 isLocked = true;
+            }
+        }
+        private void num_click(string num)
+        {
+
+            if (isLocked) return;
+            if (resultOnScreen && num != "0" && num != ",") 
+            {
+                userInput.Text = num;
+                resultOnScreen = false;
+                return;
+            }
+            else if (num != "0" && num != ",")
+            {
+                userInput.Text += num;
+                return;
+            }
+            if (resultOnScreen && num == "0") 
+            {
+                userInput.Text = "0";
+                resultOnScreen = false;
+                return;
+            }
+            else if (userInput.Text == "0" && num == "0")
+            {
+                userInput.Text = "0";
+                return;
+            }
+            else if (num == "0")
+            {
+                userInput.Text += "0";
+                return;
+            }
+            if (userInput.Text == "" && num == ",")
+            {
+                userInput.Text = "0";
+            }
+            if (resultOnScreen)
+            {
+                userInput.Text = "0,";
+                resultOnScreen = false;
+            }
+            else if (!userInput.Text.EndsWith(',') && !userInput.Text.Contains(','))
+            {
+                userInput.Text += ",";
+            }
+        }
+        private void operation_click(char func)
+        {
+            if (isLocked) return;
+            if (userInput.Text != "")
+            {
+                first = double.Parse(userInput.Text);
+                userInput.Text = "";
+                Function = func;
+                resultOnScreen = false;
+            }
+            else
+            {
+                Function = func;
+
             }
         }
     }
